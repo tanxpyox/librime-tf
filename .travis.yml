@@ -1,10 +1,14 @@
 os: linux
 dist: xenial
 
+env:
+  RIME_DIR: $HOME/librime
+  PLUGIN_DIR: ${RIME_DIR}/plugins/librime-tf
+
 install:
   - sudo apt-get install g++ unzip zip
   - chmod u+x ./*sh
   - ./install-bazel.sh
-  
+
 script:
   - echo OK

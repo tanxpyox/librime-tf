@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Adding Bazel repository
 sudo apt install curl
@@ -7,6 +7,3 @@ echo "deb [arch=amd64] https://storage.googleapis.com/bazel-apt stable jdk1.8" |
 
 # Install
 sudo apt update && sudo apt install bazel
-
-# Test
-bazel --version
