@@ -9,5 +9,5 @@ export BAZEL_VERSION=$(
 )
 
 # Install Bazel
-wget -O - https://github.com/bazelbuild/bazel/releases/download/${BAZEL_VERSION}/bazel-${BAZEL_VERSION}-installer-linux-x86_64.sh | \
+wget https://github.com/bazelbuild/bazel/releases/download/${BAZEL_VERSION}/bazel-${BAZEL_VERSION}-installer-linux-x86_64.sh | \
   sudo bash
