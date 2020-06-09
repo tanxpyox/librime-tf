@@ -5,7 +5,9 @@ before_install:
   - export BAZEL_VERSION=$( git ls-remote --tags --refs --sort="v:refname" https://github.com/bazelbuild/bazel.git | tail -n1 | sed 's/.*\///' )
 
 install:
-  - curl -fsSL https://github.com/bazelbuild/bazel/releases/download/${BAZEL_VERSION}/bazel-${BAZEL_VERSION}-installer-linux-x86_64.sh | bash --
-
+  - wget https://github.com/bazelbuild/bazel/releases/download/${BAZEL_VERSION}/bazel-${BAZEL_VERSION}-installer-linux-x86_64.sh
+  - chmod u+x bazel*.sh
+  - sudo ./bazel*.sh
+  
 script:
   - echo OK
