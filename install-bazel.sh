@@ -1,15 +1,12 @@
 #!/bin/bash
 
-# Find Bazel version from GitHub repository
-export BAZEL_VERSION=$( 
-  git ls-remote --tags --refs --sort="v:refname" \
-  https://github.com/bazelbuild/bazel.git | \
-  tail -n1 | \
-  sed 's/.*\///' 
-)
+# Adding Bazel repository
+sudo apt install curl
+curl https://bazel.build/bazel-release.pub.gpg | sudo apt-key add -
+echo "deb [arch=amd64] https://storage.googleapis.com/bazel-apt stable jdk1.8" | sudo tee /etc/apt/sources.list.d/bazel.list
 
-# Install Bazel
-curl -fsSL https://github.com/bazelbuild/bazel/releases/download/${BAZEL_VERSION}/bazel-${BAZEL_VERSION}-installer-linux-x86_64.sh | \
-  sudo bash
+# Install
+sudo apt update && sudo apt install bazel
 
+# Test
 bazel --version
