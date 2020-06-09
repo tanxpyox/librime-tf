@@ -9,6 +9,7 @@ install:
   - sudo apt-get install g++ unzip zip
   - chmod u+x ./*sh
   - ./install-bazel.sh
+  - ./install-dependencies.sh
 
 script:
-  - echo OK
+  - ls -a
